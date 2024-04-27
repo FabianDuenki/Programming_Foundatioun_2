@@ -38,21 +38,6 @@ namespace MB11.SortComparison.SortingAlgorithms
                 }
             }
 
-            //arrayToSort.Clear();
-            ////int i = 0;
-            //foreach (object item in buckets)
-            //{
-            //    //arrayToSort.Insert(0, item);
-            //    MessageBox.Show("" + item);
-            //}
-
-            //for (int i = 0; i < n; i++)
-            //{
-            //    if
-            //    arrayToSort[i] = 
-            //}
-
-            //foreach (bucket in buckets )
         }
     }
 }
