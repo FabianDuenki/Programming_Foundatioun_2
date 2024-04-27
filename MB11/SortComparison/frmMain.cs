@@ -63,8 +63,7 @@ namespace MB11.SortComparison
             var list = (from domainAssembly in AppDomain.CurrentDomain.GetAssemblies()
                         from assemblyType in domainAssembly.GetTypes()
                         where typeof(SortAlgorithm).IsAssignableFrom(assemblyType) && !assemblyType.IsAbstract
-                        select assemblyType).ToArray();
-
+                        select assemblyType).ToArray();           
             var items = new List<Tuple<string, Type>>();
             foreach (var t in list)
             {
