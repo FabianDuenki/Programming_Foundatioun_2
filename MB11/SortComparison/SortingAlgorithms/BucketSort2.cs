@@ -1,4 +1,5 @@
 ﻿using System;
+using MB11.SortComparison.SortingAlgorithms;
 
 namespace MB11.SortComparison.SortingAlgorithms
 {
@@ -7,37 +8,51 @@ namespace MB11.SortComparison.SortingAlgorithms
         public override string Name => "Bucketsort2";
         public override void Sort(IList<int> arrayToSort)
         {
-            var n = arrayToSort.Count;
-            var maxValue = arrayToSort.Max();
+            int max = arrayToSort.Max();
+            int min = arrayToSort.Min();
+            int n = (max - min)/ 10 + 1;
 
-            var partition = (int)(maxValue / 10)+1;
-
-            IList<int>[] buckets = new IList<int>[partition]; //array von IList
-            //MessageBox.Show("" + arrayToSort.Max());
-            for (int i = 0; i < partition; i++)
-            {
-                buckets[i] = new List<int>();
-            }
+            List<int>[] partitions = new List<int>[n];
 
             for (int i = 0; i < n; i++)
             {
-                int j = (int)(arrayToSort[i] / 10); 
-                buckets[j].Add(arrayToSort[i]);
+                partitions[i] = new List<int>();
             }
 
-
-            int x = 0;
-
-            foreach (var p in buckets)
+            foreach (int i in arrayToSort)
             {
-                foreach (var q in p)
+                int index = ((int)Convert.ChangeType(i, typeof(int)) - min)/10;
+                partitions[index].Add(i);
+            }
 
+            int iSorted = 0;
+            List<int> sortedBucket = new List<int>();
+
+            foreach (List<int> bucket in partitions)
+            {
+                if (bucket.Count > 1)
                 {
-                    arrayToSort[x] = q;
-                    x++;
+                    sortedBucket = Quicksort.quickSort(bucket, 0, bucket.Count - 1);
+                }
+                else
+                {
+                    sortedBucket = bucket;
+                }
+                foreach (int i in sortedBucket)
+                {
+                    arrayToSort[iSorted] = i;
+                    iSorted++;
                 }
             }
 
+            //foreach (List<int> p in partitions)
+            //{
+            //    foreach (int i in p)
+            //    {
+            //        arrayToSort[iSorted] = i;
+            //        iSorted++;
+            //    }
+            //}
         }
     }
 }
