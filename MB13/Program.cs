@@ -21,22 +21,26 @@ class Program
 
         Console.WriteLine(tree.Contains(10));
         //Console.WriteLine(tree.Contains(11));
-        Console.WriteLine(tree.Contains(2));
+        Console.WriteLine(tree.Contains(2) + Environment.NewLine);
         //Console.WriteLine(tree.Contains(0));
 
         //Console.WriteLine(tree);
 
         tree.TraverseMode = TraverseModeEnum.PreOrder;
-        Console.WriteLine(tree);
+        Console.WriteLine("mode: PreOrder");
+        Console.WriteLine(tree + Environment.NewLine);
 
         tree.TraverseMode = TraverseModeEnum.PostOrder;
-        Console.WriteLine(tree);
+        Console.WriteLine("mode: PostOrder");
+        Console.WriteLine(tree + Environment.NewLine);
 
         tree.TraverseMode = TraverseModeEnum.InOrder;
-        Console.WriteLine(tree);
+        Console.WriteLine("mode: InOrder");
+        Console.WriteLine(tree + Environment.NewLine);
 
         tree.TraverseMode = TraverseModeEnum.ReverseInOrder;
-        Console.WriteLine(tree);
+        Console.WriteLine("mode: ReverseInOrder");
+        Console.WriteLine(tree + Environment.NewLine);
 
         tree.Remove(3);
         Console.WriteLine(tree);

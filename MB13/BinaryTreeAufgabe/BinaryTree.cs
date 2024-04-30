@@ -1,4 +1,6 @@
-﻿namespace MB13.BinaryTreeAufgabe
+﻿using MB13.BinaryTreeAufgabe;
+
+namespace MB13.BinaryTreeAufgabe
 {
     public class BinaryTree<T> where T : IComparable<T>
     {
@@ -296,7 +298,70 @@
 
             var mode = TraverseMode;
 
-            // TODO: implement
+            switch (mode)
+            {
+                case TraverseModeEnum.PreOrder:
+                    s = PreOrder(root, s);
+                    break;
+                case TraverseModeEnum.PostOrder:
+                    s = PostOrder(root, s);
+                    break;
+                case TraverseModeEnum.InOrder:
+                    s = InOrder(root, s);
+                    break;
+                case TraverseModeEnum.ReverseInOrder:
+                    s = ReverseInOrder(root, s);
+                    break;
+            }
+            return s;
+        }
+        private string PreOrder(Node<T> current, string s)
+        {
+            if(current == null)
+            {
+                return s;
+            }
+            s += current.Item + ", ";
+            s = PreOrder(current.Left, s);
+            s = PreOrder(current.Right, s);
+            return s;
+        }
+
+        private string PostOrder(Node<T> current, string s)
+        {
+            if (current == null)
+            {
+                return s;
+            }
+            s = PostOrder(current.Left, s);
+            s = PostOrder(current.Right, s);
+            s += current.Item + ", ";
+
+            return s;
+        }
+
+        private string InOrder(Node<T> current, string s) //unfinished
+        {
+            if (current == null)
+            {
+                return s;
+            }
+            s = InOrder(current.Left, s);
+            s += current.Item + ",";
+            s = InOrder(current.Right, s);
+
+            return s;
+        }
+
+        private string ReverseInOrder(Node<T> current, string s)
+        {
+            if (current == null)
+            {
+                return s;
+            }
+            s = ReverseInOrder(current.Right, s);
+            s += current.Item + ",";
+            s = ReverseInOrder(current.Left, s);
 
             return s;
         }
