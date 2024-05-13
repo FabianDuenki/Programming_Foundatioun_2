@@ -7,24 +7,37 @@ namespace MB11.SortComparison.SortingAlgorithms
         public override string Name => "Bucketsort3";
         public override void Sort(IList<int> arrayToSort)
         {
-            int max = arrayToSort.Max();
-            int min = arrayToSort.Min();
-            int n = max + 1;
-            int[] partitions = new int[n];
-            int iSorted = 0;
-
-            foreach (int i in arrayToSort){
-                partitions[i] = i;
-            }
-
-            foreach (int p in partitions)
-            {
-                if (p != 0)
-                {
-                    arrayToSort[iSorted] = p;
-                    iSorted++;
-                }
-            }
+            
         }
+
+        //public override void Sort(IList<int> arrayToSort)
+        //{
+        //    int max = arrayToSort.Max();
+        //    int min = arrayToSort.Min();
+        //    int n = max + 1;
+
+        //    int[] sorted = new int[n];
+        //    foreach (int i in arrayToSort)
+        //    {
+        //        sorted[i] = i;
+        //    }
+
+        //    //IList<IList<int>> sorted = new List<IList<int>>();
+        //    //foreach(int i in arrayToSort)
+        //    //{
+        //    //    sorted[i].Add(new IList<int>);
+        //    //}
+
+        //    int iSorted = 0;
+
+        //    foreach(int i in sorted)
+        //    {
+        //        if (i != 0)
+        //        {
+        //            arrayToSort[iSorted] = i;
+        //            iSorted++;
+        //        }
+        //    }
+        //}
     }
 }
