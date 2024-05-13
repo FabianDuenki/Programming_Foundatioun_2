@@ -19,7 +19,7 @@ namespace MB11.SortComparison.SortingAlgorithms
                 partitions[i] = new List<int>();
             }
 
-            # assign a number to it's corresponding bucket
+            // assign a number to it's corresponding bucket
             foreach (int i in arrayToSort)
             {
                 // min is substracted to point to the correct index
@@ -30,7 +30,7 @@ namespace MB11.SortComparison.SortingAlgorithms
             // iSorted points to the index in arrayToSort
             int iSorted = 0;
 
-            # iterate through all buckets
+            // iterate through all buckets
             foreach (List<int> p in partitions)
             {
                 // iterate through elements of bucket
